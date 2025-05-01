@@ -96,17 +96,22 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
                             })}
                         </span>
                     </div>
-                    <div className="flex justify-between text-sm mt-2 border-t border-gray-100 dark:border-gray-700 pt-2">
-                        <span className="text-gray-500 dark:text-gray-400">Supply</span>
-                        <span className="text-gray-900 dark:text-gray-100">
-                            {formatLargeNumber(circulatingSupply)}
-                            {
-                                maxSupply
-                                    ? ` / ${formatLargeNumber(maxSupply)}`
-                                    : ' / No Cap'
-                            }
-                        </span>
-                    </div>
+                    {
+                        circulatingSupply && (
+                            <div className="flex justify-between text-sm mt-2 border-t border-gray-100 dark:border-gray-700 pt-2">
+                                <span className="text-gray-500 dark:text-gray-400">Supply</span>
+                                <span className="text-gray-900 dark:text-gray-100">
+                                    {formatLargeNumber(circulatingSupply)}
+                                    {
+                                        maxSupply
+                                            ? ` / ${formatLargeNumber(maxSupply)}`
+                                            : ' / No Cap'
+                                    }
+                                </span>
+                            </div>
+                        )
+                    }
+                   
                 </div>
             </Card>
         </Link>
